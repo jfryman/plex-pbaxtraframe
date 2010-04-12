@@ -1,0 +1,42 @@
+<!DOCTYPE site SYSTEM "http://dev.plexapp.com/docs/_static/siteconfig.dtd"> 
+<site site="http://xtraframe.pba.com"
+      plugin="silverlight"
+      identifier="com.plexapp.plugins.pbaxtraframe"
+      initialState="paused"
+      version="0.1">
+      
+      <!-- Seekbar -->
+      <seekbar type="thumb">
+        <start x="175" y="344" />
+        <end x="265" y="344" />
+        <played>
+            <color rgb="414141" />
+        </played>
+      </seekbar>
+      
+      <!-- Playing -->
+      <state name="playing">
+        <event>
+            <condition>
+                <command name="pause" />
+            </condition>
+            <action>
+                <click x="110" y="344" />
+                <goto state="paused" />
+            </action>
+        </event>
+       </state>
+       
+       <!-- Paused -->
+       <state name="paused">
+        <event>
+            <condition>
+                <command name="play" />
+            </condition>
+            <action>
+                <click x="110" y="344" />
+                <goto state="playing" />
+            </action>
+        </event>
+       </state>
+</site>
