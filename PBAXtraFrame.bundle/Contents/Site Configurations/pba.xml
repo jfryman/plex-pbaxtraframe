@@ -1,18 +1,27 @@
-<!DOCTYPE site SYSTEM "http://dev.plexapp.com/docs/_static/siteconfig.dtd"> 
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE site SYSTEM "http://dev.plexapp.com/docs/_static/siteconfig.dtd">
 <site site="http://xtraframe.pba.com"
-      plugin="silverlight"
+      
       identifier="com.plexapp.plugins.pbaxtraframe"
-      initialState="paused"
-      version="0.1">
+      initialState="playing"
+      version="1.0">
+      
+      <!-- Really Ugly Hack :: Let's see how long this works -->
+      <!-- James Fryman (04/14/2010) -->
+      <setCookie domain="xtraframe.pba.com" path="/" name="XtraFrameUser" value="${username}" secure="false"/>
+      <setCookie domain="xtraframe.pba.com" path="/" name="XtraFramePass" value="${password}" secure="false"/>
+      
+      <crop x="0" y="0" width="487" height="300" />
       
       <!-- Seekbar -->
-      <seekbar type="thumb">
-        <start x="175" y="344" />
-        <end x="265" y="344" />
+      <seekbar type="simple">
+        <start x="344" y="180" />
+        <end x="344" y="265" />
         <played>
-            <color rgb="414141" />
+            <color rgb="525252" />
         </played>
       </seekbar>
+    
       
       <!-- Playing -->
       <state name="playing">
@@ -21,11 +30,11 @@
                 <command name="pause" />
             </condition>
             <action>
-                <click x="110" y="344" />
+                <click x="345" y="115" />
                 <goto state="paused" />
             </action>
         </event>
-       </state>
+       </state> 
        
        <!-- Paused -->
        <state name="paused">
@@ -34,9 +43,9 @@
                 <command name="play" />
             </condition>
             <action>
-                <click x="110" y="344" />
+                <click x="345" y="115" />
                 <goto state="playing" />
             </action>
         </event>
-       </state>
+       </state> 
 </site>

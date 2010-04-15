@@ -174,7 +174,7 @@ def GetVideoList(cat):
     categories = req.xpath("//ul[@class='nav-left'][1]//a/@href")
     category = "/" + categories[0]
 
-    # Seriously, no Case type statement in Python? There has to be a much better way to do this entire codeblock
+    # Seriously, no Case type statement in Python? There has to be a much better way to do this entire codeblock 
     if (cat == "New"): category = "" 
     if (cat == "Telecasts"): category = "/" + categories[0]
     if (cat == "Interviews"): category = "/" + categories[1]
@@ -190,7 +190,7 @@ def GetVideoList(cat):
     dates = req.xpath("//div[@id='video-list']//span[@class='video-thumb-date']")
 
     for i in range(len(titles)):
-        video=[WEBROOT + "/" + videos[i], titles[i].text, dates[i].text, summaries[i].text, thumbs[i]]
+        video=[WEBROOT + "/" + videos[i], titles[i].text.strip(), dates[i].text.strip(), summaries[i].text.strip(), thumbs[i]]
         list.append(video)
 
     return list
